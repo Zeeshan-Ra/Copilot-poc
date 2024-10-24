@@ -43,7 +43,7 @@ export default function Index() {
         <CopilotText>Edit app/index.tsx to edit this screen.</CopilotText>
       </CopilotStep>
 
-      <Button title="Go to Home" onPress={() => { router.push('/home') }} />
+      <Button title="Go to Home" onPress={() => { stop(); router.push('/home') }} />
     </View>
   );
 }
