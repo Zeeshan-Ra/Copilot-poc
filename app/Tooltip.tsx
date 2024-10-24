@@ -12,31 +12,27 @@ export const Tooltip = () => {
     goToPrev,
     stop,
     currentStep,
-  } = useCopilot()  
-
-  console.log("CurrentStep>>", currentStep);
-  
-  
+  } = useCopilot()
 
   return (
-    <View style={styles.tooltipContainer}>
+    <View>
       <Text style={styles.tooltipText}>{currentStep.text}</Text>
 
       <View style={styles.buttonContainer}>
         {!isFirstStep && (
-          <TouchableOpacity onPress={goToPrev} style={styles.button}>
+          <TouchableOpacity onPress={goToPrev}>
             <Text style={styles.buttonText}>Previous</Text>
           </TouchableOpacity>
         )}
 
         {!isLastStep && (
-          <TouchableOpacity onPress={goToNext} style={styles.button}>
+          <TouchableOpacity onPress={goToNext}>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         )}
 
         {isLastStep && (
-          <TouchableOpacity onPress={stop} style={styles.button}>
+          <TouchableOpacity onPress={stop}>
             <Text style={styles.buttonText}>Finish</Text>
           </TouchableOpacity>
         )}
@@ -46,32 +42,22 @@ export const Tooltip = () => {
 };
 
 const styles = StyleSheet.create({
-  tooltipContainer: {
-    backgroundColor: 'white',
-    padding: 8,
-    borderRadius: 16,
-  },
-  title: {
-    color: "green",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
   tooltipText: {
     fontSize: 20,
-    marginBottom: 12,
+    marginTop: -10,
+    marginBottom: 10,
+    textAlign: "center"
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: 200
   },
-  button: {
-    padding: 10,
-    borderRadius: 5,
-  },
   buttonText: {
     color: "green",
     fontSize: 16,
+    width: 72,
+    textAlign: "center",
+    marginBottom: 10
   },
 });

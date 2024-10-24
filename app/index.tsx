@@ -2,12 +2,10 @@ import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Button, Text, View } from "react-native";
 import {
-  CopilotProvider,
   CopilotStep,
   useCopilot,
   walkthroughable,
 } from "react-native-copilot";
-import { Tooltip } from "./Tooltip";
 
 const CopilotText = walkthroughable(Text);
 
@@ -42,8 +40,15 @@ export default function Index() {
       <CopilotStep name="step3" order={3} text="Third step">
         <CopilotText>Edit app/index.tsx to edit this screen.</CopilotText>
       </CopilotStep>
+      <CopilotStep name="step4" order={4} text="Fourth step">
+        <CopilotText>Edit app/index.tsx to edit this screen.</CopilotText>
+      </CopilotStep>
 
-      <Button title="Go to Home" onPress={() => { router.push('/home') }} />
+      <CopilotStep name="button" order={5} text="button">
+        <CopilotText>
+          <Button title="Go to Home" onPress={() => { stop(); router.push('/home') }} />
+        </CopilotText>
+      </CopilotStep>
     </View>
   );
 }
